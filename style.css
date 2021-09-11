@@ -1,0 +1,26 @@
+body {
+   margin: 0;
+}
+
+button {
+   display: block;
+}
+
+.timer {
+   display: flex;
+   justify-content: center;
+ 
+}
+
+.field {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 30px;
+}
+.text{
+   text-align: center;
+}
+.value {}
+
+.label {}
