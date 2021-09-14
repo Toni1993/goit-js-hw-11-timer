@@ -9,19 +9,25 @@ class CountdownTimer {
     this.targetDate = targetDate
     this.deltaTime = 0
   }
+  pad(value) {
+    return String(value).padStart(2, '0')
+  }
 
   start() {
     setInterval(() => {
       let currentDate = Date.now()
       let deltaTime = this.targetDate - currentDate
-      let days = pad(Math.floor(deltaTime / (1000 * 60 * 60 * 24)))
-      let hours = pad(Math.floor((deltaTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
-      let mins = pad(Math.floor((deltaTime % (1000 * 60 * 60)) / (1000 * 60)))
-      let secs = pad(Math.floor((deltaTime % (1000 * 60)) / 1000))
+
+      let days = this.pad(Math.floor(deltaTime / (1000 * 60 * 60 * 24)))
+      let hours = this.pad(Math.floor((deltaTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
+      let mins = this.pad(Math.floor((deltaTime % (1000 * 60 * 60)) / (1000 * 60)))
+      let secs = this.pad(Math.floor((deltaTime % (1000 * 60)) / 1000))
+
+      fieldDays.innerText = days
+      fieldHours.innerText = hours
+      fieldMins.innerText = mins
+      fieldSecs.innerText = secs
     }, 1000)
-  }
-  pad() {
-    return String().padStart(2, '0')
   }
 }
 
